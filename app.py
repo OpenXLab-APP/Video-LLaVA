@@ -10,10 +10,22 @@ import tempfile
 from decord import VideoReader, cpu
 from transformers import TextStreamer
 
+from openxlab.model import wget
+from openxlab.model import download
+
 from llava.constants import DEFAULT_X_TOKEN, X_TOKEN_INDEX
 from llava.conversation import conv_templates, SeparatorStyle, Conversation
 from llava.serve.gradio_utils import Chat, tos_markdown, learn_more_markdown, title_markdown, block_css
 
+# download examples
+wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_demo_1.mp4?download=true', path='./examples' ,overwrite=True)
+wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_demo_12.mp4?download=true', path='./examples' ,overwrite=True)
+wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_demo_13.mp4?download=true', path='./examples' ,overwrite=True)
+wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_demo_18.mp4?download=true', path='./examples' ,overwrite=True)
+wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_demo_22.mp4?download=true', path='./examples' ,overwrite=True)
+wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_demo_7.mp4?download=true', path='./examples' ,overwrite=True)
+wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_demo_8.mp4?download=true', path='./examples' ,overwrite=True)
+wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_img_8.png?download=true', path='./examples' ,overwrite=True)
 
 def save_image_to_local(image):
     filename = os.path.join('temp', next(tempfile._get_candidate_names()) + '.jpg')
