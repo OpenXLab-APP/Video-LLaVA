@@ -27,6 +27,17 @@ wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/ex
 wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_demo_8.mp4?download=true', path='./examples' ,overwrite=True)
 wget(url='https://huggingface.co/spaces/LanguageBind/Video-LLaVA/resolve/main/examples/sample_img_8.png?download=true', path='./examples' ,overwrite=True)
 
+# download model files
+download(model_repo='jiaxicui/Video-LLaVA-7B', model_name='config.json')
+download(model_repo='jiaxicui/Video-LLaVA-7B', model_name='generation_config.json')
+download(model_repo='jiaxicui/Video-LLaVA-7B', model_name='pytorch_model-00001-of-00002.bin')
+download(model_repo='jiaxicui/Video-LLaVA-7B', model_name='pytorch_model-00002-of-00002.bin')
+download(model_repo='jiaxicui/Video-LLaVA-7B', model_name='pytorch_model.bin.index.json')
+download(model_repo='jiaxicui/Video-LLaVA-7B', model_name='special_tokens_map.json')
+download(model_repo='jiaxicui/Video-LLaVA-7B', model_name='tokenizer.model')
+download(model_repo='jiaxicui/Video-LLaVA-7B', model_name='tokenizer_config.json')
+
+
 def save_image_to_local(image):
     filename = os.path.join('temp', next(tempfile._get_candidate_names()) + '.jpg')
     image = Image.open(image)
@@ -145,9 +156,8 @@ def clear_history(state, state_):
         True, state, state_, state.to_gradio_chatbot(), [[], []])
 
 
-
 conv_mode = "llava_v1"
-model_path = 'LanguageBind/Video-LLaVA-7B'
+model_path = '/home/xlab-app-center'
 device = 'cuda'
 load_8bit = False
 load_4bit = True
